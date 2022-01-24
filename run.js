@@ -16,7 +16,10 @@ app.get('/', async (req, res) => {
   });
   const [page] = await browser.pages();
   await page.goto("https://google.com");
-  res.send(page.title());
+  
+  const pageTitle = await page.title();
+  res.send(pageTitle);
+  
   await page.close();
 })
 
